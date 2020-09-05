@@ -1,0 +1,17 @@
+{
+	"productID": "A00001",
+	"productName": "นุติกุล อินทะโนรัตน์ (Developer)",
+	"productPrice": 15000,
+	"productImg": "https://sv1.picz.in.th/images/2020/09/03/OSnXjE.jpg",
+	"Stock": 20,
+	"info": {
+		"brand": "MEAJO UNIVERSITY",
+		"series": "2563",
+		"detail": "*Coding Languages* JavaScript, HTML/CSS, SQL , Java (JSP , Hibernate , JDBC) , XML *Frameworks/Systems*   MVC, bootstrap, Visual Studio, My SQL Workbench , Eclipse , RESTful"
+	},
+	"review": [{
+		"userID": "u12000001",
+		"rate": 4,
+		"reviewInfo": "ผมเป็นคนที่ชอบความท้าทาย กับงานที่ใช้เทคโนโลยีใหม่ๆ เพื่อให้เกิดการพัฒนาทักษะในการแก้ปัญหาที่เกิดขึ้น ทั้งนี้ผมเป็นคนมีวุฒิภาวะ มองโลกในแง่ดี สามารถทำงานภายใต้แรงกดดันและเต็มใจรับฟังความเห็นของผู้อื่น เรียนรู้ได้เร็วและพร้อมที่จะเรียนรู้สิ่งใหม่ๆเสมอ"
+	}]
+}
