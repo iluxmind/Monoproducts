@@ -27,6 +27,7 @@ class NotificationsFragment : Fragment() {
                 ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
         var text:String
+        try{
         val fileName = "history.json"
 
         requireContext().openFileInput(fileName).use { stream ->
@@ -34,27 +35,33 @@ class NotificationsFragment : Fragment() {
                 it.readText()
             }
 
-            Log.d("ddddddddddUser",text)
+            Log.d("ddddddddddUser", text)
             val gson = Gson()
             val data: Shopping = gson.fromJson(text, Shopping::class.java)
             val prices: Double = data.product!!.productPrice.toDouble() * data.unit!!.toDouble()
 
             root.shipprice.text = root.shippingprice.text
             val total: Double = prices + root.shipprice.text.toString().toDouble()
-            if(data.address.fullname.isEmpty()){
+            if (data.address.fullname.isEmpty()) {
 
-            }else{
-                root.address.text = data.address.fullname + " | " + data.address.tel + "\n" + data.address.detail +" อำเภอ"+ data.address.district+", จังหวัด"+data.address.province+","+data.address.zipcode
+            } else {
+                root.address.text =
+                    data.address.fullname + " | " + data.address.tel + "\n" + data.address.detail + " อำเภอ" + data.address.district + ", จังหวัด" + data.address.province + "," + data.address.zipcode
             }
             root.nameproduct.text = data.product!!.productName
-            root.priceproduct.text = "฿"+data.product!!.productPrice.toString()
-            root.unitproduct.text = "X"+ data.unit
+            root.priceproduct.text = "฿" + data.product!!.productPrice.toString()
+            root.unitproduct.text = "X" + data.unit
             root.price.text = prices.toString()
             root.total1.text = total.toString()
             root.cash.text = data.cash
             val imageUrl = data.product!!.productImg.toString()
             Picasso.get().load(imageUrl).into(root.imagepd)
+
+            root.noproduct.visibility = View.INVISIBLE
+            return root
+        }}catch(e:Exception){
+            root.noproduct.visibility = View.VISIBLE
+            return root
+            }
         }
-        return root
     }
-}
